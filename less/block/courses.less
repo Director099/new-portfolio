@@ -1,0 +1,24 @@
+.courses {
+
+  margin: 0 -15px;
+
+  &__panel {
+    flex: 1 0 33%;
+    padding: 0 15px;
+
+    &--text-right {
+      @media(min-width: @screen-md) {
+        text-align: right;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+  }
+
+  @media(min-width: @screen-md) {
+    display: flex;
+    align-items: flex-start;
+  }
+}

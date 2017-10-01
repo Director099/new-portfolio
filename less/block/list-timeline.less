@@ -1,0 +1,33 @@
+.list-timeline {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  &__item {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+
+    &:nth-child(even) {
+      justify-content: flex-end;
+      text-align: left;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+
+      .data-work::after {
+        display: none;
+      }
+    }
+
+    @media(min-width: @screen-md) {
+      justify-content: flex-start;
+      text-align: right;
+      min-height: 150px;
+      margin-bottom: 50px;
+    }
+  }
+}
