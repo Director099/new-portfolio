@@ -1,0 +1,39 @@
+.portfolio {
+
+  &__container {
+    .container();
+  }
+
+	&__title {
+		.heading();
+	}
+
+  &__text {
+    .text-title();
+  }
+
+	&__grid {
+    margin: 0 -15px;
+		.grid();
+	}
+
+	&__link {
+    padding: 0 15px;
+    margin-bottom: 15px;
+
+    @media(min-width: @screen-sm) {
+      width: 50%;
+    }
+
+    @media(min-width: @screen-md) {
+      width: 33.3%;
+    }
+
+		img {
+			width: 100%;
+      height: auto;
+      display: block;
+		}
+
+	}
+}
