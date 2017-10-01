@@ -1,7 +1,6 @@
 "use strict";
 
 var gulp = require("gulp");
-var sass = require("gulp-sass"); //препроцессор sass
 var less = require('gulp-less'); //препроцессор less
 var plumber = require("gulp-plumber"); //плагин чтоб не слетело во время ошибок
 var postcss = require("gulp-postcss"); // плагин для автопрефикса, минифик
@@ -15,7 +14,9 @@ var svgstore = require("gulp-svgstore"); // собиральщик cvg
 var svgmin = require("gulp-svgmin"); // свг минификация
 var run = require("run-sequence"); //запуск плагинов очередью
 var del = require("del"); //удаление ненужных файлов
-
+var concat = require('gulp-concat'); // Конкатинация
+var uglify = require('gulp-uglify'); // минификация js
+ 
 gulp.task("clean", function() {
   return del("build");
 });
@@ -26,7 +27,6 @@ gulp.task("copy", function() {
       "img/**",
       "js/**",
       "*.html",
-      "bootstrap/**",
       "*.css"
     ], {
       base: "."
@@ -53,6 +53,31 @@ gulp.task("style", function() {
     .pipe(server.stream());
 });
 
+gulp.task("serve", function() {
+  server.init({
+    server: "."
+  });
+  gulp.watch("less/**/*.less", ["style"]);
+  gulp.watch("*.html").on("change", server.reload);
+});
+
+gulp.task('script', function() {
+  return gulp.src([
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/jquery-migrate/jquery-migrate.min.js',
+    'node_modules/popper.js/dist/umd/popper.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
+    'node_modules/owl.carousel/dist/owl.carousel.min.js',
+    'js/custom.js'
+    ])
+  .pipe(concat('script.js'))
+  .pipe(gulp.dest('js'))
+  .pipe(uglify())
+  .pipe(rename({suffix: '.min'}))
+  .pipe(gulp.dest('js'));
+});
+
+
 gulp.task("images", function() {
   return gulp.src("img/**/*.{png,jpg,gif}")
     .pipe(imagemin([
@@ -76,17 +101,10 @@ gulp.task("build", function(fn) {
   run(
     "clean",
     "copy",
+    "script",
     "style",
     "images",
     "symbols",
     fn
   );
-});
-
-gulp.task("serve", function() {
-  server.init({
-    server: "."
-  });
-  gulp.watch("less/**/*.less", ["style"]);
-  gulp.watch("*.html").on("change", server.reload);
 });
