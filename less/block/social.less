@@ -9,5 +9,19 @@
     border: 1px solid @white;
     border-radius: @border-radius;
     text-decoration: none;
+    transition: @transition-time;
+
+    &:hover {
+      border: 1px solid @link-color--hover;
+
+      .social__svg {
+        fill: @link-color--hover;
+      }
+    }
+  }
+
+  &__svg {
+    fill: #fff;
+    transition: @transition-time;
   }
 }

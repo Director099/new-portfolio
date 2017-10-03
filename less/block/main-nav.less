@@ -13,7 +13,11 @@
 
 	&__link {
 		text-decoration: none;
-		color: #000;
+		color: @text-color;
+		transition: @transition-time;
+		&:hover {
+			color: @link-color--hover;
+		}
 	}
 
   @media(min-width: @screen-md) {
