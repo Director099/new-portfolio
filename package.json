@@ -31,5 +31,8 @@
     "build": "gulp build",
     "test": "eslint js/"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "normalize.css": "^7.0.0"
+  }
 }
