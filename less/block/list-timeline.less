@@ -10,6 +10,20 @@
     align-items: center;
     margin-bottom: 20px;
 
+    &:hover {
+      .data-work {
+        border: 1px solid @link-color--hover;
+
+        span {
+          color: @link-color--hover;
+        }
+
+        &::after {
+          background: @link-color--hover;
+        }
+      }
+    }
+
     &:nth-child(even) {
       justify-content: flex-end;
       text-align: left;
