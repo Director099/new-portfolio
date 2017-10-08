@@ -416,7 +416,7 @@ main .bg-color:nth-child(even) {
   background: #f5f5f5;
 }
 .callback {
-  background: url("../img/form.jpg");
+  background: url("img/form.jpg");
   background-size: cover;
   padding: 50px 0;
   text-align: center;
@@ -519,7 +519,7 @@ main .bg-color:nth-child(even) {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(44, 62, 80, 0.3) url("../img/pattern.png");
+  background: rgba(44, 62, 80, 0.3) url("img/pattern.png");
   width: 100%;
   height: 100%;
 }
@@ -655,24 +655,15 @@ main .bg-color:nth-child(even) {
   -ms-flex-align: center;
       align-items: center;
   color: #fff;
-  background: rgba(44, 62, 80, 0.3) url(../img/pattern.png);
+  background: rgba(44, 62, 80, 0.3) url('img/pattern.png');
 }
-.portfolio__link {
+.portfolio__shadow {
   position: relative;
-  display: block;
-  padding: 0 15px;
-  margin-bottom: 15px;
+  max-height: 215px;
+  overflow: hidden;
 }
-.portfolio__link img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.figc {
-  position: relative;
-}
-.figc::after,
-.figc::before {
+.portfolio__shadow::after,
+.portfolio__shadow::before {
   content: "";
   position: absolute;
   top: 30px;
@@ -683,20 +674,31 @@ main .bg-color:nth-child(even) {
   opacity: 0;
   transition: opacity .35s,transform .35s;
 }
-.figc::after {
+.portfolio__shadow::after {
   border-right: 1px solid #fff;
   border-left: 1px solid #fff;
   transform: scale(1, 0);
 }
-.figc::before {
+.portfolio__shadow::before {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   transform: scale(0, 1);
 }
-.figc:hover::after,
-.figc:hover::before {
+.portfolio__shadow:hover::after,
+.portfolio__shadow:hover::before {
   transform: initial;
   opacity: 1;
+}
+.portfolio__link {
+  position: relative;
+  display: block;
+  padding: 0 15px;
+  margin-bottom: 15px;
+}
+.portfolio__link img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 .skills {
   max-width: 1170px;
