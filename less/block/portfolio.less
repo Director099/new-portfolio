@@ -15,6 +15,7 @@
 	&__grid {
     margin: 0 -15px;
 		.grid();
+    justify-content: space-around;
 	}
 
   &__name {
@@ -28,14 +29,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    background: rgba(44,62,80,.3) url('img/pattern.png');
+    color: @white;
+    opacity: 0;
+    transition: @transition-time;
+    text-align: center;
+    // background: rgba(44,62,80,.3) url('img/pattern.png');
   }
 
   &__shadow {
     position: relative;
     max-height: 215px;
     overflow: hidden;
+    box-shadow: 0 0 10px 1px fade(@black, 90%);
 
     &::after,
     &::before {
@@ -63,10 +68,16 @@
     }
 
     &:hover {
+
       &::after,
       &::before {
         transform: initial;
         opacity: 1;
+      }
+
+      .portfolio__name {
+        opacity: 1;
+        background: fade(@black, 30%);
       }
     }
   }
@@ -75,7 +86,7 @@
     position: relative;
     display: block;
     padding: 0 15px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 
     @media(min-width: @screen-sm) {
       width: 50%;

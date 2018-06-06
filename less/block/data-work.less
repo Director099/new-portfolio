@@ -7,9 +7,10 @@
   justify-content: center;
   width: 90px;
   height: 90px;
-  font-size: 14px;
+  font-size: 11px;
   border-radius: 100%;
   border: 1px solid @gray-light;
+  background: @white;
   text-align: center;
   transition: @transition-time;
 
@@ -20,18 +21,19 @@
   @media(min-width: @screen-md) {
     width: 150px;
     height: 150px;
-    font-size: @font-size;
+    font-size: 14px;
     left: 50%;
     margin-left: -75px;
 
     &::after {
       content: "";
       position: absolute;
-      bottom: -51px;
+      bottom: -100%;
       left: 50%;
       width: 1px;
-      height: 50px;
+      height: 100%;
       background: @gray-light;
+      transition: @transition-time;
     }
   }
 }

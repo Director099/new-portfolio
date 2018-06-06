@@ -1,0 +1,21 @@
+.about-us {
+
+
+  @media(min-width: @screen-md) {
+    padding-top: 43px;
+  }
+}
+
+.about-us__img {
+  max-width: 250px;
+  height: 250px;
+  margin: 50px auto;
+  border-radius: 150px;
+  overflow: hidden;
+  filter: grayscale(100%);
+  transition: @transition-time;
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+}
