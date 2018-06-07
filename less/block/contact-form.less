@@ -11,4 +11,20 @@
     font-size: 14px;
     padding: 10px;
   }
+
+  &__btn {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 9px 0;
+    font-size: @font-size--btn;
+    background: @gray-darkest;
+    color: @white;
+    cursor: pointer;
+    transition: @transition-time;
+
+    &:hover {
+      background: @link-color--hover;
+    }
+  }
 }

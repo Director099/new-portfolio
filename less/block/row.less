@@ -1,0 +1,17 @@
+.row {
+  .grid();
+  margin: 0 -15px;
+}
+
+.row__column {
+  padding: 0 15px;
+  width: 100%;
+
+  @media (min-width: @screen-md) {
+    width: 50%;
+  }
+
+  &--ident-small {
+     padding: 0 5px;
+  }
+}

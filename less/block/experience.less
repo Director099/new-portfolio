@@ -11,4 +11,40 @@
   &__text {
     .text-title();
   }
+
+  &__btn {
+    display: inline-block;
+    padding: 10px 15px;
+    color: black;
+    border: 1px solid @gray-lighten;
+    margin-bottom: 15px;
+    background: @white;
+    transition: @transition-time;
+
+    &:hover {
+      box-shadow: 0 0 10px 1px fade(@gray-lighten, 90%);
+    }
+
+    &--danger {
+      background: @color-danger;
+      color: @white;
+      border: none;
+
+      &:hover {
+        box-shadow: 0 0 10px 1px fade(@color-danger, 90%);
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  &__group-btn {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+  }
 }

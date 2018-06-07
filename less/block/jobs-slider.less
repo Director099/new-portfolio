@@ -1,0 +1,50 @@
+.jobs-slider {
+  margin-top: 20px;
+
+  .item {
+    display: block;
+    max-width: 100%;
+    max-height: 400px;
+    margin: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 1px fade(@black, 90%);
+  }
+
+  .owl-prev,
+  .owl-next {
+    position: absolute;
+    top: 50%;
+    overflow: hidden;
+    transform: translateY(-50%);
+    transition: @transition-time;
+
+    span {
+      font-size: 74px;
+      line-height: 30px;
+    }
+
+    &:hover {
+      background: #1a1a1a !important;
+    }
+  }
+
+  .owl-nav {
+    margin: 0;
+  }
+
+  .owl-next {
+    right: 10px;
+  }
+
+  .owl-prev {
+    left: 10px;
+  }
+
+  .owl-dot.active span {
+    background: #1a1a1a !important;
+  }
+
+  @media (min-width: @screen-md) {
+    margin-top: 0;
+  }
+}
